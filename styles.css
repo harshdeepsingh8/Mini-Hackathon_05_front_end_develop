@@ -144,3 +144,71 @@ main {
     opacity: 0.6;
     cursor: wait;
 }
+
+.info-section {
+    max-width: 700px;
+    width: 100%;
+    margin-top: 1.75rem;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.info-section h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.info-section p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.info-section ul {
+    margin-left: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.info-section li {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Footer */
+.site-footer {
+    text-align: center;
+    padding: 1rem 0.5rem 1.4rem;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+/* Utilities */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .quote-card {
+        padding: 1.25rem 1rem;
+    }
+
+    .quote-text {
+        font-size: 1.1rem;
+    }
+
+    .info-section {
+        padding: 1.25rem 1rem;
+    }
+}
