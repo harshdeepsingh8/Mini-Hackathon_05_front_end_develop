@@ -23,3 +23,17 @@ This project was created for **Module 05: Mini Hackathon – Asynchronous Data F
 ### Jaskarandeep Kaur
 
 ### Kamaldeep Kaur
+Built the complete **index.html layout**, including:
+  - Main header and project subtitle  
+  - Status message area  
+  - Quote display card with text, author, and tag placeholders  
+  - Interactive buttons for user actions  
+  - Informational section describing asynchronous concepts  
+  - Footer section  
+- Ensured semantic HTML structure for clarity and accessibility.
+- Matched all required class names and IDs to work correctly with styling.
+- Organized the HTML into clear sections with documentation comments for maintainability.
+
+---
+## Summary
+The team collaborated to produce a clean, responsive, and functional webpage demonstrating asynchronous data fetching concepts. Each member contributed to the development of a polished and user-friendly interface within the hackathon timeframe.
