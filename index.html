@@ -11,7 +11,8 @@
         using async/await and the Fetch API. JavaScript dynamically updates 
         the quote, author, and tag fields. CSS handles layout and styling.
     -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Async Quote Generator</title>
 
     <!-- Linking the external CSS file created by the partner -->
@@ -25,52 +26,55 @@
          Displays title + subtitle.
          Matches .site-header styles.
          ======================= -->
-         <header class="site-header">
+    <header class="site-header">
         <h1>Async Quote Generator</h1>
         <p class="subtitle">Fetching inspirational quotes using async & await</p>
     </header>
 
-         <!-- =======================
+    <!-- =======================
          MAIN CONTENT AREA
          Holds status messages and
          the quote generator UI.
          ======================= -->
-            <main>
-                <p id="status" class="status"></p>
+    <main>
 
-         <!-- =======================
+        <!-- Status text updated by JS -->
+        <p id="status" class="status"></p>
+
+        <!-- =======================
              QUOTE GENERATOR SECTION
              Contains the visual quote card
              and action buttons.
              Styled using .quote-app
              ======================= -->
-               <section class="quote-app">
-                 <!-- Quote card: dynamically filled by JS -->
+        <section class="quote-app">
+
+            <!-- Quote card: dynamically filled by JS -->
             <div class="quote-card">
                 <p id="quoteText" class="quote-text">Click "New Quote" to begin!</p>
                 <p id="quoteAuthor" class="quote-author"></p>
                 <p id="quoteTags" class="quote-tags"></p>
             </div>
 
-               <!-- =======================
+            <!-- =======================
                  BUTTON CONTROLS
                  1) New Quote
                  2) Stop Auto Mode
                  JS updates behaviors
                  ======================= -->
-                  <div class="controls">
+            <div class="controls">
                 <button id="newQuoteBtn">New Quote</button>
                 <button id="stopBtn" disabled>Stop Auto Mode</button>
             </div>
 
         </section>
 
-                  <!-- =======================
+        <!-- =======================
              INFO SECTION
              Explains how the app works.
              Styled using .info-section
              ======================= -->
-              <section class="info-section">
+        <section class="info-section">
             <h2>How This Works</h2>
             <p>This webpage demonstrates asynchronous JavaScript concepts, including:</p>
             <ul>
@@ -83,10 +87,10 @@
 
     </main>
 
-              <!-- =======================
+    <!-- =======================
          FOOTER
          ======================= -->
-         <footer class="site-footer">
+    <footer class="site-footer">
         &copy; 2025 Async Hackathon Project — Team Submission
     </footer>
 
@@ -95,5 +99,3 @@
 
 </body>
 </html>
-
-             
