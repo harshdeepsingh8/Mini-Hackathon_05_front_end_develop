@@ -84,3 +84,87 @@ async function getQuote() {
     newQuoteBtn.disabled = false;
   }
 }
+
+cat > script.js <<'EOF'
+/* script.js - commit 4
+   Add auto mode with Start/Stop behavior and keyboard shortcuts.
+*/
+(() => {
+  const API_URL = 'https://api.quotable.io/random';
+  const FETCH_TIMEOUT_MS = 8000;
+  const AUTO_INTERVAL_MS = 8000;
+
+  const quoteTextEl = document.getElementById('quoteText');
+  const quoteAuthorEl = document.getElementById('quoteAuthor');
+  const newQuoteBtn = document.getElementById('newQuoteBtn');
+  const stopBtn = document.getElementById('stopBtn');
+  const statusEl = document.getElementById('status');
+
+  let autoTimer = null;
+
+  function setStatus(msg, type) {
+    statusEl.textContent = msg;
+    statusEl.className = 'status';
+    if (type) statusEl.classList.add(type);
+  }
+
+  async function fetchWithTimeout(url, timeout = FETCH_TIMEOUT_MS) {
+    const controller = new AbortController();
+    const id = setTimeout(() => controller.abort(), timeout);
+    try {
+      const resp = await fetch(url, { signal: controller.signal });
+      clearTimeout(id);
+      if (!resp.ok) throw new Error('HTTP ' + resp.status);
+      return resp.json();
+    } finally {
+      clearTimeout(id);
+    }
+  }
+
+  async function getQuote() {
+    setStatus('Loading...');
+    newQuoteBtn.disabled = true;
+    try {
+      const data = await fetchWithTimeout(API_URL);
+      quoteTextEl.textContent = data.content || '';
+      quoteAuthorEl.textContent = data.author ? '— ' + data.author : '';
+      setStatus('Quote loaded', 'success');
+    } catch (err) {
+      setStatus(err.name === 'AbortError' ? 'Timed out' : 'Error fetching', 'error');
+      console.error(err);
+    } finally {
+      newQuoteBtn.disabled = false;
+    }
+  }
+
+  function startAuto() {
+    if (autoTimer) return;
+    setStatus('Auto mode started');
+    newQuoteBtn.disabled = true;
+    stopBtn.disabled = false;
+    getQuote();
+    autoTimer = setInterval(getQuote, AUTO_INTERVAL_MS);
+  }
+
+  function stopAuto() {
+    if (!autoTimer) return;
+    clearInterval(autoTimer);
+    autoTimer = null;
+    newQuoteBtn.disabled = false;
+    stopBtn.disabled = true;
+    setStatus('Auto mode stopped');
+  }
+
+  newQuoteBtn.addEventListener('click', getQuote);
+  stopBtn.addEventListener('click', stopAuto);
+
+  // start auto if ?auto=true
+  try {
+    const p = new URLSearchParams(location.search);
+    if (p.get('auto') === 'true') startAuto();
+  } catch (e) {}
+
+  // expose for dev
+  window.__quoteApp = { getQuote, startAuto, stopAuto };
+})();
+EOF
