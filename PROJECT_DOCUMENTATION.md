@@ -21,6 +21,10 @@ This project was created for **Module 05: Mini Hackathon – Asynchronous Data F
 -   Added hover/active button effects, gradients, shadows, and accessibility helpers (e.g., visually hidden headings).
 
 ### Jaskarandeep Kaur
+-  Designed script.js in async Quote Generator which is a mini web project built to demonstrate asynchronous JavaScript concepts using the Fetch API and async/await. 
+-  The app retrieves inspirational quotes from an external API and updates the webpage dynamically. 
+-  It includes features such as automatic quote refreshing, error and timeout handling, and prevention of repeated quotes through simple caching. 
+-  The interface is styled with CSS for a clean user experience, while JavaScript manages all data fetching, UI updates, and user interactions. 
 
 ### Kamaldeep Kaur
 Built the complete **index.html layout**, including:
